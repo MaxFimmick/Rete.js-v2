@@ -25,7 +25,7 @@ onMounted(async () => {
     />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="Rete.js v2" />
     </div>
   </header>
 
