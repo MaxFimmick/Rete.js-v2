@@ -1,36 +1,36 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
-import { createEditor } from "./rete";
-// import { createEditor } from "./rete/editor";
+import { createEditor } from "./rete/editor";
 
 const reteRef = ref<HTMLElement | null>(null);
 
 onMounted(async () => {
   if (reteRef.value) {
+    console.log("log", reteRef.value);
     await createEditor(reteRef.value);
   }
 });
 </script>
 
 <template>
-  <!-- <div id="app"> -->
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    />
+  <div id="app" style="width: 100vw">
+    <header>
+      <img
+        alt="Vue logo"
+        class="logo"
+        src="./assets/logo.svg"
+        width="125"
+        height="125"
+      />
 
-    <div class="wrapper">
-      <HelloWorld msg="Rete.js v2" />
-    </div>
-  </header>
+      <div class="wrapper">
+        <HelloWorld msg="Rete.js v2" />
+      </div>
+    </header>
 
-  <main class="rete" ref="reteRef"></main>
-  <!-- </div> -->
+    <main style="width: 650px" class="rete" ref="reteRef"></main>
+  </div>
 </template>
 
 <style scoped>

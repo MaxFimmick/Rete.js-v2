@@ -1,3 +1,3 @@
 import { ClassicPreset } from "rete";
 
-export const socket = new ClassicPreset.Socket("number");
+export const socket = new ClassicPreset.Socket("Number");

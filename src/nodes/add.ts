@@ -12,7 +12,6 @@ export class AddNode
 {
   width = 180;
   height = 190;
-
   constructor(
     change?: (value: number) => void,
     initial?: { left?: number; right?: number }
@@ -27,7 +26,6 @@ export class AddNode
         change,
       })
     );
-
     right.addControl(
       new Classic.InputControl("number", {
         initial: initial?.right || 0,
@@ -38,13 +36,11 @@ export class AddNode
     this.addInput("left", left);
     this.addInput("right", right);
     this.addOutput("value", new Classic.Output(socket, "Number"));
-    // 處理相加的結果
     this.addControl(
       "result",
       new Classic.InputControl("number", { initial: 0, readonly: true })
     );
   }
-
   data(inputs: { left?: number[]; right?: number[] }) {
     const { left = [], right = [] } = inputs;
 

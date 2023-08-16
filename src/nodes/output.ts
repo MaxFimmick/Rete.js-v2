@@ -2,30 +2,26 @@ import { ClassicPreset as Classic } from "rete";
 import { DataflowNode } from "rete-engine";
 import { socket } from "../rete/sockets";
 
-export class InputNode
+export class OutputNode
   extends Classic.Node<
-    // { [x: string]: Classic.Socket | undefined; }
-    {},
     { value: Classic.Socket },
+    {},
     { key: Classic.InputControl<"text"> }
   >
   implements DataflowNode
 {
   width = 180;
   height = 140;
-  value: any = null;
 
   constructor(initial: string) {
-    super("Input");
+    super("Output");
 
     this.addControl("key", new Classic.InputControl("text", { initial }));
-    this.addOutput("value", new Classic.Output(socket, "Number"));
+    this.addInput("value", new Classic.Input(socket, "Number"));
   }
 
   data() {
-    return {
-      value: this.value,
-    };
+    return {};
   }
 
   serialize() {
